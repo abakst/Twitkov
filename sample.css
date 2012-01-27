@@ -1,0 +1,47 @@
+body {
+    margin: auto;
+    background-color: #F3EBD5;
+}
+#main {
+    width: 800px;
+    height: 800px;
+    /* margin-left: 100px; */
+    position: absolute;
+    background-image:url('dudes.gif');
+    font-family:"Palatino", Times, serif;
+}
+div.atweet {
+    font-style: italic;
+}
+#generated {
+    width: 100px;
+    position: absolute;
+}
+#tweetarea {
+    font-size: 10pt;
+    position: absolute;
+    left: 300px;
+    width: 240px;
+    top: 100px;
+    height: 400px;
+    overflow: auto;
+}
+#tweetbox {
+    position: absolute;
+    left: 82px;
+    top: 160px;
+    width: 190px;
+    height: 25px;
+}
+#resultbox {
+    font-size: 10pt;
+    overflow: auto;
+    position: absolute;
+    top: 600px;
+    height: 70px;
+    left: 295px;
+    width: 225px;
+    }
+input {
+    border: 1px solid grey;
+}

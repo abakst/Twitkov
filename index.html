@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>TwitStream - Sample</title>
+<link rel="stylesheet" type="text/css" href="sample.css"/>
+</style>
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="twitStream.js"></script>
+<script type="text/javascript">
+<!-- showTweetLinks='all'; -->
+function doSearch() {
+ search = document.getElementById('tweetbox').value;
+ if (search == "")
+   return;
+ document.getElementById('tweetarea').innerHTML = 
+   "<div class=\"twitStream 5\" id=\"tweets"+search+"\" title=\"" + search + "\" ></div>";
+  foo();
+}
+</script>
+</head>
+<body>
+  <div id="main">
+    <div id="search">
+      <form><input type="text" id="tweetbox" onkeyup="doSearch()"></form>
+    </div>
+    <div id="tweetarea"></div>
+    <div id="resultbox"></div>
+  </div>
+</body>
+</html>
