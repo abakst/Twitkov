@@ -14,6 +14,8 @@ function generateTweet() {
     xmlHttp.abort();
     xmlHttp = null;
   }
+  document.getElementById("resultbox").innerHTML=
+     "<div id='gentweet'>\"...\"</div>";
   var str = document.getElementById('tweetboxinput').value;
   xmlHttp = new XMLHttpRequest();
   xmlHttp.onreadystatechange=function() 
@@ -45,7 +47,7 @@ function doSearch(e) {
 <body>
   <div id="main">
     <div id="tweetbox">
-      <form><input type="text" id="tweetboxinput" onkeyup="doSearch()">
+      <form onsubmit="generateTweet(); return false;"><input type="text" id="tweetboxinput" onkeyup="doSearch()">
 </form>
   <button id="tweetit" onclick="generateTweet()">me too</button>
 
