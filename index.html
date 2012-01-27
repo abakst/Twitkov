@@ -8,20 +8,47 @@
 <script type="text/javascript" src="twitStream.js"></script>
 <script type="text/javascript">
 <!-- showTweetLinks='all'; -->
-function doSearch() {
- search = document.getElementById('tweetbox').value;
- if (search == "")
-   return;
- document.getElementById('tweetarea').innerHTML = 
-   "<div class=\"twitStream 5\" id=\"tweets"+search+"\" title=\"" + search + "\" ></div>";
+var xmlHttp = null;
+function generateTweet() {
+  if (xmlHttp) {
+    xmlHttp.abort();
+    xmlHttp = null;
+  }
+  var str = document.getElementById('tweetboxinput').value;
+  xmlHttp = new XMLHttpRequest();
+  xmlHttp.onreadystatechange=function() 
+  {
+    if(xmlHttp.readyState == 4 && xmlHttp.status==200)
+    {
+      console.log(xmlHttp.responseText);
+      document.getElementById("resultbox").innerHTML=xmlHttp.responseText;
+    }
+  }
+  str = str.replace(/#/g,"%23");
+  str = str.replace(/ /g, "%20");
+  console.log(str);
+  console.log("/~abakst/cgi-bin/script.pl?search="+str);
+  xmlHttp.open("GET","/~abakst/cgi-bin/script.pl?search="+str,true);
+  xmlHttp.send();
+}
+function doSearch(e) {
+  search = document.getElementById('tweetboxinput').value;
+  console.log(search);
+  if (search == "")
+    return;
+  document.getElementById('tweetarea').innerHTML = 
+  "<div class=\"twitStream 10\" id=\"tweets"+search+"\" title=\"" + search + "\" ></div>";
   foo();
 }
 </script>
 </head>
 <body>
   <div id="main">
-    <div id="search">
-      <form><input type="text" id="tweetbox" onkeyup="doSearch()"></form>
+    <div id="tweetbox">
+      <form><input type="text" id="tweetboxinput" onkeyup="doSearch()">
+</form>
+  <button id="tweetit" onclick="generateTweet()">me too</button>
+
     </div>
     <div id="tweetarea"></div>
     <div id="resultbox"></div>

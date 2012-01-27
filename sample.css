@@ -34,8 +34,9 @@ div.atweet {
     height: 25px;
 }
 #resultbox {
-    font-size: 10pt;
+    font-size: 9pt;
     overflow: auto;
+font-style: italic;
     position: absolute;
     top: 600px;
     height: 70px;
@@ -44,4 +45,5 @@ div.atweet {
     }
 input {
     border: 1px solid grey;
+    align: center;
 }

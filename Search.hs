@@ -10,7 +10,7 @@ data Query = StrQuery String
 resource = "http://search.twitter.com/search.json"
 buildQuery q n page = resource ++ "?q=" ++ stringify q ++ options
   where stringify (StrQuery str)  = str
-        options = "&rpp=" ++ (show n) ++ "&page=" ++ (show page)
+        options = "&lang=en&rpp=" ++ (show n) ++ "&page=" ++ (show page)
         
 maxPages = 15
 maxTweets = 100
