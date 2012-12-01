@@ -17,7 +17,13 @@ generateFromTweets seed n k q = do
   m <- tweetModel k q
   return (generateText seed n m)
   
-generateTweet = take 140
+generateTweet str = tail $ takeUntil 140 "" $ words str
+    where
+      takeUntil n s []     = s
+      takeUntil n s (w:ws) = if n > length w then
+                                 takeUntil (n - length w) (s++" "++w) ws
+                             else
+                                 s
                 
 main :: IO ()
 main = do
