@@ -8,6 +8,6 @@ twitkov: Main.hs Markov.hs Search.hs
 	ghc --make Main -o twitkov
 
 clean:
-	-rm twitkov
-	-rm *.o
-	-rm *.hi
+	-rm -f twitkov
+	-rm -f *.o
+	-rm -f *.hi
